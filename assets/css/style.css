@@ -1,0 +1,60 @@
+body {
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(99, 71, 255);
+}
+button {
+    padding: 1vw;
+    border: 2px solid #4CAF50;
+}
+.container {
+    max-width: 50vw;
+    min-width: 50vw;
+    /* background-color: #FF7E47; */
+    border: 2px solid #FF7E47;
+
+    max-height: 50vh;
+    min-height: 50vh;
+    margin: auto;
+    margin-top: 7vh;
+    
+}
+.row {
+    display: inline-flex;
+    width: 60vw;
+    padding-top: 1vh;
+    margin-left: 1vw;
+    
+}
+.col {
+    margin: auto;
+}
+
+img {
+    width: 150px;
+    height: 100px;
+}
+.title {
+    text-shadow: 2px 2px black;
+    text-align: center;
+    margin: auto;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+p {
+    color: white;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    text-transform: capitalize;
+    word-spacing: 5px;
+    font-size: 2vw;
+}
+h6 {
+    line-height: 1.1;
+    margin-bottom: 1px;
+}
+h1 {
+    font-size: 4vw;
+    color: white;
+}

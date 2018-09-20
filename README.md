@@ -1,2 +1,0 @@
-# AnimeTrivia
-Trivia homework assignment
