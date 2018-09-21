@@ -4,9 +4,11 @@ body {
     background-repeat: no-repeat;
     background-color: rgb(99, 71, 255);
 }
-button {
+button#startBtn {
     padding: 1vw;
     border: 2px solid #4CAF50;
+    margin-left: 23.7vw;
+    margin-top: 22vh;
 }
 .container {
     max-width: 50vw;

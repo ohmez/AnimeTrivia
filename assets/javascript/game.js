@@ -1,29 +1,30 @@
 // first step is to populate the page
-started = false; 
-function start () {
-    var startBtn = $('<button/>', {
-        text: 'Start', //set text 1 to 10
-        id: 'start',
-        class: 'col',
-        style: 'margin-left: 23.7vw; margin-top: 22vh;',
-        click: function () { 
-            started = true;
-            console.log(start); }
-        });
-    $(".container").html(startBtn);
-    
-    
-}; 
-// end start function
-console.log(started);
-
+var started = false; 
+var timer;
 $(document).ready(function() {
-    start();
-    
-    console.log($(".container"));
-    
-    
-    
-    
+$(".y").hide();
+console.log($(".container"));
 });
 // end doc.ready
+
+$(document).on("click", "#startBtn", function() {
+    $(".n").hide();
+    $(".y").show();
+    started = true; 
+    console.log(started);
+    questionBtns();
+});
+// end start on click function 
+function questionBtns () {
+    var Btns = [];
+    var questionA = $("#questionArea")
+    var newBtn = $("<button>");
+    for (i = 0; i < 4; i++) {
+        Btns[i] = $("<button>").text('test'+i);
+        // newBtn.text('test'+i);
+        // Btns.push(newBtn);
+        console.log(Btns);
+    }
+    console.log("this is when append happens");
+    questionA.html(Btns);
+};
