@@ -3,16 +3,17 @@ var timer;
 var time = 30; 
 var intervalId
 var trivia = {
-    q1: {question: 'What village is Naruto From?', 
+    1: {question: 'What village is Naruto From?', 
     a:['The Village', 'The Village People', 'Village Hidden in The Leaf', 'Village Hidden in The Fog'],
     correctA:2},
-    q2: {question: 'What Clan is Sasuke From',
+    2: {question: 'What Clan is Sasuke From',
     a:['The Uchiha', 'The Huyiga', 'The Village', 'The Sharingan'],
     correctA:0}
 };
 var correctIndex;
+var qC = 1; 
 // end global variables 
-console.log(trivia.q1);
+console.log(trivia[1]);
 
 $(document).ready(function() {
     $(".y").hide();
@@ -31,41 +32,50 @@ $(document).on("click", "#startBtn", function() {
 // end start on click function 
 $(document).on("click", ".answers", function() {
     if (this.id == correctIndex) {
-        console.log(this.id);
         correctAnswer();
     }
     
 });
+// end on click check for correct answer
 function correctAnswer() {
-    $("#questionArea").html('<p>Correct it is '+trivia.q1.a[correctIndex]+'</p>');
+    $("#questionArea").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>');
     $("#answers").html('');
     stop();
+    setTimeout(answerBtns, 2000);
+    setTimeout(questionGen, 2000);
+    
 };
-function answerBtns () {
+// end correct answer response pop
+function answerBtns() {
+    var y; 
     var Btns = [];
     var answerA = $("#answers");
     var newBtn = $("<button>");
     for (i = 0; i < 4; i++) {
-        Btns[i] = $("<button>").text(trivia.q1.a[i]).attr("id",i).addClass('answers');
-        // newBtn.text('test'+i);
-        // Btns.push(newBtn);
+        y= trivia[qC].a[i];
+        Btns[i] = $("<button>").text(y).attr("id",i).addClass('answers');
     } // end for loop
-    correctIndex = trivia.q1.correctA;
+    correctIndex = trivia[qC].correctA;
     console.log(Btns);
     console.log(correctIndex);
     answerA.html(Btns);
 };
 // end trivia answers button populate function 
-function questionGen () {
+function questionGen() {
+    var x = trivia[qC].question;
+    console.log(x);
     var questionA = $("#questionArea");
-    questionA.html('<p>'+ trivia.q1.question + '</p>');
+    questionA.html('<p>'+ x + '</p>');
+    qC++;
+    console.log(qC);
+
 };
 // end trivia question generator
 function run() {
     intervalId = setInterval(decrease, 1000);
 };
 // end run function for timer 
-function decrease () {
+function decrease() {
     time--; 
     $("span#timer").html(time);
     if (time <= 0) {
@@ -73,7 +83,7 @@ function decrease () {
     }
 };
 // end interval decrease and populate function for timer 
-function stop () { 
+function stop() { 
     intervalId = clearInterval(intervalId);
     time = 30; 
     $("span#timer").html(time);
