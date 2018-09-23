@@ -4,6 +4,23 @@ body {
     background-repeat: no-repeat;
     background-color: rgb(99, 71, 255);
 }
+button.answers {
+    background-color: rgb(74, 200, 122); /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 1vw 1vw 1vw 10vw;
+    cursor: pointer;
+    border-radius: 12px;
+    opacity: 0.9;
+}
+button.answers:hover {
+    opacity: 1.5;
+}
 button#startBtn {
     padding: 1vw;
     border: 2px solid #4CAF50;
@@ -16,14 +33,14 @@ button#startBtn {
     /* background-color: #FF7E47; */
     border: 2px solid #FF7E47;
 
-    max-height: 50vh;
+    max-height: 99vh;
     min-height: 50vh;
     margin: auto;
     margin-top: 7vh;
     
 }
 .row {
-    display: inline-flex;
+    display: block;
     width: 60vw;
     padding-top: 1vh;
     margin-left: 1vw;

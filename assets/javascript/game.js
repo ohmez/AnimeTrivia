@@ -10,8 +10,10 @@ var trivia = {
     a:['The Uchiha', 'The Huyiga', 'The Village', 'The Sharingan'],
     correctA:0}
 };
+var imageIndex = ['<br><div style="block"><img src="assets/images/1.png" alt="leaf village"></div>', '<br><img src="assets/images/2.jpg" alt="uchiha sasuke">'];
 var correctIndex;
 var qC = 1; 
+var imgI = 0;
 // end global variables 
 console.log(trivia[1]);
 
@@ -38,11 +40,12 @@ $(document).on("click", ".answers", function() {
 });
 // end on click check for correct answer
 function correctAnswer() {
-    $("#questionArea").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>');
+    $("#questionArea").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
     $("#answers").html('');
     stop();
     setTimeout(answerBtns, 2000);
     setTimeout(questionGen, 2000);
+    setTimeout(function(){imgI++},100);
     
 };
 // end correct answer response pop
