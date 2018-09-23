@@ -51,8 +51,9 @@ button#startBtn {
 }
 
 img {
-    width: 150px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
+    margin-left: 3vw;
 }
 .title {
     text-shadow: 2px 2px black;
@@ -76,4 +77,5 @@ h6 {
 h1 {
     font-size: 4vw;
     color: white;
+    margin: auto;
 }
