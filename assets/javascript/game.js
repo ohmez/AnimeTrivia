@@ -20,6 +20,9 @@ var correctIndex;
 var qC = 1; 
 var imgI = 0;
 var won = false;
+var correct = 0;
+var incorrect = 0;
+var notry = 0;
 // end global variables 
 
 $(document).ready(function() {
@@ -40,9 +43,11 @@ $(document).on("click", "#startBtn", function() {
 $(document).on("click", ".answers", function() {
     if (this.id == correctIndex) {
         correctAnswer();
+        correct++;
     }
     if (this.id != correctIndex){
     wrong();
+    incorrect++;
     }
 });
 // end on click check for correct answer
@@ -59,9 +64,15 @@ function wrong () {
 // end wrong function - runs if incorrect answer was clicked. 
 
 function lose () {
-    $(".content").html('<h1> SORRY YOUVE RAN OUT OF TIME </h1>' 
+    $("#answers").html('');
+    $("#questionArea").html('<h1> SORRY YOUVE RAN OUT OF TIME </h1>' 
         + '<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
-    reset();
+    setTimeout(answerBtns, 1900);
+    setTimeout(questionGen, 2000);
+    setTimeout(function(){imgI++},100);
+    notry++;
+    end();
+
 };
 // end lose function 
 
@@ -76,9 +87,12 @@ function end () {
   if (qC == 4)  {
       won = true; 
       setTimeout(function(){
-      $(".content").html('<h1>THIS IS THE END; MORE STATS TO COME</h1>');
+      $(".content").html('<h1>THIS IS THE END;'+ 'MORE STATS TO COME</h1>'+
+                        '<p>Correct Guesses: '+ correct + '</p>'+
+                        '<p>Incorrect Guesses: ' + incorrect +'</p>'+
+                        '<p>No attempt made: ' + notry + '</p>');
       reset();
-    },2200);}
+    },4400);}
 };
 // end end function  - stats are neded to be added here 
 
