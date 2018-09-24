@@ -17,15 +17,23 @@ button.answers {
     cursor: pointer;
     border-radius: 12px;
     opacity: 0.9;
+    width: 15vw;
 }
 button.answers:hover {
     opacity: 1.5;
+    color: red;
 }
 button#startBtn {
     padding: 1vw;
     border: 2px solid #4CAF50;
     margin-left: 23.7vw;
     margin-top: 22vh;
+}
+button#restart {
+    padding: 1vw;
+    border: 2px solid #4CAF50;
+    margin-left: 23.7vw;
+    margin-top: 9vh;
 }
 .container {
     max-width: 50vw;
@@ -63,6 +71,7 @@ img {
     margin-bottom: 2vh;
 }
 p {
+    text-shadow: 2px 2px black;
     color: white;
     letter-spacing: 3px;
     line-height: 1.1;
@@ -71,10 +80,12 @@ p {
     font-size: 2vw;
 }
 h6 {
+    text-shadow: 2px 2px black;
     line-height: 1.1;
     margin-bottom: 1px;
 }
 h1 {
+    text-shadow: 2px 2px black;
     font-size: 4vw;
     color: white;
     margin: auto;

@@ -51,12 +51,15 @@ $(document).on("click", ".answers", function() {
     }
 });
 // end on click check for correct answer
-
+$(document).on("click", "#restart", function() {
+   reset();
+});
+// end restart click 
 function wrong () {
     stop();
     $("#answers").html('<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
-    setTimeout(answerBtns, 1900);
-    setTimeout(questionGen, 2000);
+    setTimeout(answerBtns, 2400);
+    setTimeout(questionGen, 2500);
     setTimeout(function(){imgI++},100);
     end();
 
@@ -67,8 +70,8 @@ function lose () {
     $("#answers").html('');
     $("#questionArea").html('<h1> SORRY YOUVE RAN OUT OF TIME </h1>' 
         + '<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
-    setTimeout(answerBtns, 1900);
-    setTimeout(questionGen, 2000);
+    setTimeout(answerBtns, 2400);
+    setTimeout(questionGen, 2500);
     setTimeout(function(){imgI++},100);
     notry++;
     end();
@@ -77,9 +80,17 @@ function lose () {
 // end lose function 
 
 function reset () {
-    setTimeout(function() {
-        document.location.reload(true);
-    }, 6000);
+    if(won) {
+    correctIndex;
+    qC = 1; 
+    imgI = 0;
+    won = false;
+    correct = 0;
+    incorrect = 0;
+    notry = 0;
+    setTimeout(answerBtns, 100);
+    setTimeout(questionGen, 120);
+    }
 };
 // end reset function 
 
@@ -87,14 +98,16 @@ function end () {
   if (qC == 4)  {
       won = true; 
       setTimeout(function(){
-      $(".content").html('<h1>THIS IS THE END;'+ 'MORE STATS TO COME</h1>'+
+      $("#questionArea").html('<h1>THIS IS THE END</h1>');
+      $("#answers").html(
                         '<p>Correct Guesses: '+ correct + '</p>'+
                         '<p>Incorrect Guesses: ' + incorrect +'</p>'+
-                        '<p>No attempt made: ' + notry + '</p>');
-      reset();
-    },4400);}
+                        '<p>No attempt made: ' + notry + '</p><br>' +
+                        '<button id="restart">Restart</button>');
+    },4400);
+    }
 };
-// end end function  - stats are neded to be added here 
+// end end function and create restart button
 
 function correctAnswer() {
     $("#questionArea").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
