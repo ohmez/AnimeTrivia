@@ -51,10 +51,12 @@ $(document).on("click", ".answers", function() {
     }
 });
 // end on click check for correct answer
+
 $(document).on("click", "#restart", function() {
    reset();
 });
 // end restart click 
+
 function wrong () {
     stop();
     $("#answers").html('<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
@@ -64,7 +66,7 @@ function wrong () {
     end();
 
 };
-// end wrong function - runs if incorrect answer was clicked. 
+// end wrong guess function - runs if incorrect answer was clicked. 
 
 function lose () {
     $("#answers").html('');
@@ -77,7 +79,7 @@ function lose () {
     end();
 
 };
-// end lose function 
+// end lose function - runs if time runs out. 
 
 function reset () {
     if(won) {
@@ -92,7 +94,7 @@ function reset () {
     setTimeout(questionGen, 120);
     }
 };
-// end reset function 
+// end reset function - runs when restart is clicked 
 
 function end () {
   if (qC == 4)  {
@@ -107,7 +109,7 @@ function end () {
     },4400);
     }
 };
-// end end function and create restart button
+// end end function and create restart button if questioncount reaches max index
 
 function correctAnswer() {
     $("#questionArea").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
