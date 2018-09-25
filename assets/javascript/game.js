@@ -113,11 +113,11 @@ function end () {
       setTimeout(function(){
       $(".timer").hide();
       $("#questionArea").html('<h1>THANKS FOR PLAYING!</h1>');
-      $("#answers").html(
+      $("#answers").html('<div>'+
                         '<p style="margin-left: 12vw;">Correct Guesses: '+ correct + '</p>'+
                         '<p style="margin-left: 12vw;">Incorrect Guesses: ' + incorrect +'</p>'+
                         '<p style="margin-left: 12vw;">No attempt made: ' + notry + '</p><br>' +
-                        '<button id="restart">Restart</button>');
+                        '<button id="restart">Restart</button></div>');
     },5400);
     }
 };
@@ -139,14 +139,12 @@ function answerBtns() {
     var y; 
     var Btns = [];
     var answerA = $("#answers");
-    var newDiv = $("<div>");
     for (i = 0; i < 4; i++) {
         y= trivia[qC].a[i];
         Btns[i] = $("<button>").text(y).attr("id",i).addClass('answers');
     } // end for loop
     correctIndex = trivia[qC].correctA;
-    newDiv.html(Btns);
-    answerA.html(newDiv);
+    answerA.html(Btns);
     run();
 };
 // end trivia answers button populate function
