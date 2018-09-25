@@ -38,7 +38,7 @@ $(document).ready(function() {
 });
 // end doc.ready
 
-$(document).on("click", "#startBtn", function() {
+$(document).on("click", "#startBtn", function(event) {
     $(".n").hide();
     $(".y").show();
     started = true; 
@@ -48,7 +48,7 @@ $(document).on("click", "#startBtn", function() {
 });
 // end start on click function 
 
-$(document).on("click", ".answers", function() {
+$(document).on("click", ".answers", function(event) {
     if (this.id == correctIndex) {
         correctAnswer();
         correct++;
@@ -60,7 +60,7 @@ $(document).on("click", ".answers", function() {
 });
 // end on click check for correct answer
 
-$(document).on("click", "#restart", function() {
+$(document).on("click", "#restart", function(event) {
    reset();
 });
 // end restart click 
@@ -118,7 +118,7 @@ function end () {
                         '<p style="margin-left: 12vw;">Incorrect Guesses: ' + incorrect +'</p>'+
                         '<p style="margin-left: 12vw;">No attempt made: ' + notry + '</p><br>' +
                         '<button id="restart">Restart</button></div>');
-    },5400);
+    },3400);
     }
 };
 // end end function and create restart button if questioncount reaches max index
