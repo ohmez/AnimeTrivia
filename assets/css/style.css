@@ -90,3 +90,34 @@ h1 {
     color: white;
     margin: auto;
 }
+@media(max-width:400px) {
+    img {
+        width: 150px;
+        height: 300px;
+        display: block;
+    }
+    button.answers {
+        margin: 0 1vw 0 1vw;
+        padding: 1vw;
+    }
+    p {
+        font-size: 6vw;
+    }
+    .row {
+        display: inline-flex;
+    }
+
+    h1 {
+        font-size: 10vw;
+    }
+    button#startBtn {
+        font-size: 9vw;
+        margin: auto;
+        margin-left: 40vw;
+        margin-top: 10vh; 
+    }
+    .container {
+    max-width: 98vw;
+    min-width: 90vw;
+    }
+}

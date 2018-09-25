@@ -67,7 +67,8 @@ $(document).on("click", "#restart", function() {
 
 function wrong () {
     stop();
-    $("#answers").html('<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
+    $("#answers").html('<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>');
+    $("#imageArea").html(imageIndex[imgI]);
     setTimeout(answerBtns, 2900);
     setTimeout(questionGen, 3000);
     setTimeout(function(){imgI++},100);
@@ -79,7 +80,8 @@ function wrong () {
 function lose () {
     $("#answers").html('');
     $("#questionArea").html('<h1> SORRY YOUVE RAN OUT OF TIME </h1>' 
-        + '<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
+        + '<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>');
+    $("#imageArea").html(imageIndex[imgI]);
     setTimeout(answerBtns, 2900);
     setTimeout(questionGen, 3000);
     setTimeout(function(){imgI++},100);
@@ -122,7 +124,8 @@ function end () {
 // end end function and create restart button if questioncount reaches max index
 
 function correctAnswer() {
-    $("#answers").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
+    $("#answers").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>');
+    $("#imageArea").html(imageIndex[imgI]);
     stop();
     end();
     setTimeout(answerBtns, 2900);
@@ -132,15 +135,18 @@ function correctAnswer() {
 // end correct answer response pop
 
 function answerBtns() {
+    $("#imageArea").empty();
     var y; 
     var Btns = [];
     var answerA = $("#answers");
+    var newDiv = $("<div>");
     for (i = 0; i < 4; i++) {
         y= trivia[qC].a[i];
         Btns[i] = $("<button>").text(y).attr("id",i).addClass('answers');
     } // end for loop
     correctIndex = trivia[qC].correctA;
-    answerA.html(Btns);
+    newDiv.html(Btns);
+    answerA.html(newDiv);
     run();
 };
 // end trivia answers button populate function
