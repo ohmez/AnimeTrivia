@@ -11,11 +11,19 @@ var trivia = {
     correctA:0},
     3: {question: 'What Anime is This Background Image From?',
     a:['My Name', 'Your Name', 'Our Name', 'The Name'],
+    correctA:1},
+    4: {question: 'What Anime has All Might as a main character?',
+    a:['Naruto', 'Bleach', 'Your Name', 'My Hero Academia'],
+    correctA:3},
+    5: {question: 'What Anime is Kira from?',
+    a:['Your Name', 'Death Note', 'The Alchemist', 'Magi'],
     correctA:1}
 };
 var imageIndex = ['<br><img src="assets/images/1.png" alt="leaf village">',
                     '<br><img src="assets/images/2.jpg" alt="uchiha sasuke">',
-                    '<br><img src="assets/images/background.png" alt="your name">'];
+                    '<br><img src="assets/images/background.png" alt="your name">',
+                    '<br><img src="assets/images/3.jpg" alt="All-Might_My-Hero-Academia">',
+                    '<br><img src="assets/images/4.jpg" alt="Kira_Death-Note">'];
 var correctIndex;
 var qC = 1; 
 var imgI = 0;
@@ -60,8 +68,8 @@ $(document).on("click", "#restart", function() {
 function wrong () {
     stop();
     $("#answers").html('<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
-    setTimeout(answerBtns, 2400);
-    setTimeout(questionGen, 2500);
+    setTimeout(answerBtns, 2900);
+    setTimeout(questionGen, 3000);
     setTimeout(function(){imgI++},100);
     end();
 
@@ -72,8 +80,8 @@ function lose () {
     $("#answers").html('');
     $("#questionArea").html('<h1> SORRY YOUVE RAN OUT OF TIME </h1>' 
         + '<p>The Correct Answer Was '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
-    setTimeout(answerBtns, 2400);
-    setTimeout(questionGen, 2500);
+    setTimeout(answerBtns, 2900);
+    setTimeout(questionGen, 3000);
     setTimeout(function(){imgI++},100);
     notry++;
     end();
@@ -90,6 +98,7 @@ function reset () {
     correct = 0;
     incorrect = 0;
     notry = 0;
+    $(".timer").show();
     setTimeout(answerBtns, 100);
     setTimeout(questionGen, 120);
     }
@@ -97,27 +106,27 @@ function reset () {
 // end reset function - runs when restart is clicked 
 
 function end () {
-  if (qC == 4)  {
+  if (qC == 6)  {
       won = true; 
       setTimeout(function(){
-      $("#questionArea").html('<h1>THIS IS THE END</h1>');
+      $(".timer").hide();
+      $("#questionArea").html('<h1>THANKS FOR PLAYING!</h1>');
       $("#answers").html(
-                        '<p>Correct Guesses: '+ correct + '</p>'+
-                        '<p>Incorrect Guesses: ' + incorrect +'</p>'+
-                        '<p>No attempt made: ' + notry + '</p><br>' +
+                        '<p style="margin-left: 12vw;">Correct Guesses: '+ correct + '</p>'+
+                        '<p style="margin-left: 12vw;">Incorrect Guesses: ' + incorrect +'</p>'+
+                        '<p style="margin-left: 12vw;">No attempt made: ' + notry + '</p><br>' +
                         '<button id="restart">Restart</button>');
-    },4400);
+    },5400);
     }
 };
 // end end function and create restart button if questioncount reaches max index
 
 function correctAnswer() {
-    $("#questionArea").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
-    $("#answers").html('');
+    $("#answers").html('<p>Correct it is '+trivia[qC-1].a[correctIndex]+'</p>' + imageIndex[imgI]);
     stop();
     end();
-    setTimeout(answerBtns, 1900);
-    setTimeout(questionGen, 2000);
+    setTimeout(answerBtns, 2900);
+    setTimeout(questionGen, 3000);
     setTimeout(function(){imgI++},100);
 };
 // end correct answer response pop
